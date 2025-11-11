@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Terminal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #1e1e1e;
+            --color-text: #ff00b7;
+            --color-prompt: #87ceeb;
+            --color-error: #ff5555;
+        }
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #terminal {
+            width: 100vw;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: scroll;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        #terminal::-webkit-scrollbar {
+            display: none;
+        }
+
+        #output {
+            white-space: pre-wrap;
+            padding-bottom: 5px;
+        }
+        #input-container {
+            display: flex;
+            align-items: center;
+        }
+        #prompt-display {
+            color: var(--color-prompt);
+            margin-right: 5px;
+            white-space: pre;
+        }
+        #command-input {
+            background-color: transparent;
+            color: inherit;
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-size: inherit;
+            flex-grow: 1;
+            caret-color: var(--color-text);
+            padding: 0;
+            margin: 0;
+        }
+        .ls-file {
+            color: #ffffff;
+        }
+        .ls-dir {
+            color: #ffaa00;
+            font-weight: bold;
+        }
+        .error-message {
+            color: var(--color-error);
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal">
+        <div id="output"></div>
+        <div id="input-container">
+            <span id="prompt-display"></span>
+            <input type="text" id="command-input" autofocus autocomplete="off">
+        </div>
+    </div>
+
+    <script src="terminal.js"></script>
+</body>
+</html>
